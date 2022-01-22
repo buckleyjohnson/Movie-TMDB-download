@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().barTintColor = .systemBlue
         UINavigationBar.appearance().tintColor = .white
+        
+        
         return true
     }
 }
