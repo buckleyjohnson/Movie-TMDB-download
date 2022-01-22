@@ -30,9 +30,9 @@ class MovieDetailViewController: UIViewController {
         movieTitleLabel.text = movieTitle;
         releaseDateLabel.text = releaseDate;
         overviewTextView.text = overview;
-        posterImage.image = UIImage(named: "placeholder")
+        posterImage.image = UIImage(named: Constant.placeholderImageName)
         
-        let urlString = "https://image.tmdb.org/t/p/w500/" + poster 
+        let urlString = Constant.posterUrl + poster
         
         print(urlString)
         let url = URL(string: urlString)!
@@ -40,12 +40,9 @@ class MovieDetailViewController: UIViewController {
     }
     
     func downloadImage(from url: URL) {
-        print("Download Started")
         network.getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            // always update the UI from the main thread
             DispatchQueue.main.async() { [weak self] in
                 self?.posterImage.image = UIImage(data: data)
             }

@@ -41,13 +41,9 @@ struct Response: Codable {
 
 class Network {
     
-   // let theApiKey = "5885c445eab51c7004916b9c0313e2d3"
-    var movies:[Movie] = []
-    typealias QueryResult = (TokenResult) -> Void
-    
         func dataRequest<T: Decodable>(with url: String, objectType: T.Type, completion: @escaping (Result<T>) -> Void) {
 
-            //create the url with NSURL
+            
             let dataURL = URL(string: url)!
             let session = URLSession.shared
             let request = URLRequest(url: dataURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60)

@@ -33,3 +33,12 @@ extension Double {
         return String(format: "%.1f",self)
     }
 }
+
+
+extension String {
+    var urlEncoded: String? {
+        let allowedCharacterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "~-_."))
+        return self.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
+    }
+}
+

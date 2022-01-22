@@ -17,9 +17,6 @@ struct Movie: Codable {
     let title: String?
     let poster_path: String?
     
-//    enum CodingKeys: String, CodingKey {
-//            case title = "title"
-//        }
 }
 
 /*
